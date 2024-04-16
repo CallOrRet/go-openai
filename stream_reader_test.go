@@ -42,9 +42,7 @@ data: {"id": "thread_123", "object": "thread"}
 
 	err = stream.Wait()
 
-	if err != nil {
-		checks.ErrorIs(t, err, io.EOF, "get unexpected stream error:", err.Error())
-	}
+	checks.ErrorIs(t, err, io.EOF, "get unexpected stream error:", err.Error())
 
 	if response.ID != "thread_123" {
 		t.Fatalf("Did not retrieve the correct event id, reponse: %v", response)
